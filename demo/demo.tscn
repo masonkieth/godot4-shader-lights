@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://3ugdj4dsqn16"]
+
+[ext_resource type="Script" uid="uid://c0af5tpxp3xi4" path="res://demo/demo.gd" id="1_demo"]
+[ext_resource type="Script" uid="uid://dqolqy4ui285x" path="res://addons/shader_lighting/shader_light_2d.gd" id="2_light"]
+[ext_resource type="Material" path="res://addons/shader_lighting/examples/ambient_only_material.tres" id="3_ambient"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(24, 400)
+
+[node name="Demo" type="Node2D" unique_id=1168337016]
+script = ExtResource("1_demo")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=773505158]
+color = Color(0.18, 0.2, 0.3, 1)
+
+[node name="Floor" type="ColorRect" parent="." unique_id=499891414]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.55, 0.55, 0.55, 1)
+
+[node name="RedTile" type="ColorRect" parent="." unique_id=103466425]
+offset_left = 200.0
+offset_top = 150.0
+offset_right = 360.0
+offset_bottom = 270.0
+mouse_filter = 2
+color = Color(0.8, 0.25, 0.2, 1)
+
+[node name="BlueTile" type="ColorRect" parent="." unique_id=1928019416]
+offset_left = 760.0
+offset_top = 400.0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
+color = Color(0.2, 0.35, 0.8, 1)
+
+[node name="GreenTile" type="ColorRect" parent="." unique_id=1449072896]
+offset_left = 880.0
+offset_top = 80.0
+offset_right = 1000.0
+offset_bottom = 280.0
+mouse_filter = 2
+color = Color(0.25, 0.7, 0.3, 1)
+
+[node name="AmbientOnlySign" type="ColorRect" parent="." unique_id=930765380]
+material = ExtResource("3_ambient")
+offset_left = 380.0
+offset_top = 500.0
+offset_right = 580.0
+offset_bottom = 560.0
+mouse_filter = 2
+color = Color(0.95, 0.85, 0.2, 1)
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1684523944]
+position = Vector2(576, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=2075887154]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Visual" type="ColorRect" parent="Wall" unique_id=1121581797]
+offset_left = -12.0
+offset_top = -200.0
+offset_right = 12.0
+offset_bottom = 200.0
+mouse_filter = 2
+color = Color(0.3, 0.24, 0.2, 1)
+
+[node name="WarmLamp" type="Node2D" parent="." unique_id=1727707668]
+position = Vector2(300, 220)
+script = ExtResource("2_light")
+texture_scale = 2.0
+color = Color(1, 0.7, 0.35, 1)
+energy = 1.5
+lit_radius = 180.0
+
+[node name="CyanLamp" type="Node2D" parent="." unique_id=625537116]
+position = Vector2(860, 470)
+script = ExtResource("2_light")
+texture_scale = 2.5
+color = Color(0.35, 0.9, 1, 1)
+energy = 1.2
+lit_radius = 220.0
+
+[node name="DecorativeGlow" type="Node2D" parent="." unique_id=1311708959]
+position = Vector2(940, 180)
+script = ExtResource("2_light")
+texture_scale = 1.5
+color = Color(1, 0.3, 0.9, 1)
+
+[node name="Player" type="Node2D" parent="." unique_id=525350772]
+position = Vector2(576, 100)
+
+[node name="CursorLight" type="Node2D" parent="Player" unique_id=191158098]
+script = ExtResource("2_light")
+color = Color(0.9, 0.95, 1, 1)
+energy = 0.8
+lit_radius = 150.0
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=809591432]
+layer = 20
+
+[node name="Label" type="Label" parent="HUD" unique_id=588761503]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 400.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 20
+text = "Cursor is ..."

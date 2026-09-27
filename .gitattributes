@@ -1,0 +1,14 @@
+# Normalize line endings.
+* text=auto eol=lf
+*.png binary
+
+# Keep Asset Library downloads to just the add-on. Everything below is the
+# demo project and repo housekeeping, which users installing the plugin into
+# their own project don't want.
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/project.godot export-ignore
+/demo export-ignore
+/screenshots export-ignore
+/README.md export-ignore
+/LICENSE export-ignore

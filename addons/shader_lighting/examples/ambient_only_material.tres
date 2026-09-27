@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" uid="uid://dw685rvgwabfd" path="res://addons/shader_lighting/examples/ambient_only.gdshader" id="1"]
+
+[resource]
+shader = ExtResource("1")
